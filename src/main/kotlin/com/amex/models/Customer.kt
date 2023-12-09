@@ -1,5 +1,7 @@
 package com.amex.models
 
+import kotlinx.serialization.Serializable
+
 //class Customer constructor(_name : String, _accNo : Long , _email : String , _pass : String ,
 //     _contactNo : Long= 23254455445323) {
 //     var name = _name
@@ -15,6 +17,7 @@ package com.amex.models
 
 
 
+@Serializable
 abstract class Customer {
 
      internal open val code = "c"
@@ -37,9 +40,10 @@ abstract class Customer {
           contactNo = _contactNo
           address = _address
      }
-//          constructor(_accNo: Long):this(_name = "hasd",_accNo, "hardik@gmail.com", "dummypass",4544, _address = Address()) {
-//
-//          }
+          constructor(_accNo: Long):this(_name = "hasd",_accNo, "hardik@gmail.com", "dummypass",4544, _address = Address("sdsd", "sdsd")) {
+
+              accNo = _accNo
+          }
      companion object{
           var counter=0
           fun showData(): Int{

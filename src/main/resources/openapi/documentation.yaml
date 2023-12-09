@@ -4,11 +4,11 @@ info:
   description: "Application API"
   version: "1.0.0"
 servers:
-  - url: "http://0.0.0.0:8080"
+  - url: "http://localhost:8080"
 paths:
   /:
     get:
-      description: "Hello World!"
+      description: ""
       responses:
         "200":
           description: "OK"
@@ -19,5 +19,88 @@ paths:
               examples:
                 Example#1:
                   value: "Hello World!"
+    /customers:
+      get:
+        description: ""
+        responses:
+          "200":
+            description: "OK"
+            content:
+              text/plain:
+                schema:
+                  type: "string"
+                examples:
+                  Example#1:
+                    value: "Loading Customers....."
+      post:
+        description: ""
+        requestBody:
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Indiviual"
+          required: true
+        responses:
+          "200":
+            description: "OK"
+            content:
+              '*/*':
+                schema: { }
+  components:
+    schemas:
+      Address:
+        type: "object"
+        properties:
+          doorNo:
+            type: "string"
+          streetName:
+            type: "string"
+      Indiviual:
+        type: "object"
+        properties:
+          surName:
+            type: "string"
+          gender:
+            type: "string"
+            enum:
+              - "MALE"
+              - "FEMALE"
+              - "TRANS"
+          dob:
+            type: "string"
+            format: "date"
+          name:
+            type: "string"
+          accNo:
+            type: "integer"
+            format: "int64"
+          email:
+            type: "string"
+          pass:
+            type: "string"
+          contactNo:
+            type: "integer"
+            format: "int64"
+          address:
+            $ref: "#/components/schemas/Address"
+      ResponseWrapper:
+        type: "object"
+        properties:
+          message:
+            type: "string"
+      ResponseWrapper_Indiviual:
+        type: "object"
+        properties:
+          message:
+            type: "string"
+          payload:
+            $ref: "#/components/schemas/Indiviual"
+      ResponseWrapper_String:
+        type: "object"
+        properties:
+          message:
+            type: "string"
+          payload:
+            type: "string"
 components:
   schemas:

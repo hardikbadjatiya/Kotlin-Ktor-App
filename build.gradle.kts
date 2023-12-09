@@ -34,6 +34,12 @@ dependencies {
     implementation("io.ktor:ktor-server-content-negotiation-jvm")
     implementation("io.ktor:ktor-serialization-kotlinx-json-jvm")
     implementation("io.ktor:ktor-serialization-jackson-jvm")
+    runtimeOnly("org.jetbrains.kotlinx:kotlinx-datetime-jvm:0.5.0")
+// https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-serialization-runtime
+    // implementation("org.jetbrains.kotlinx", "kotlinx-serialization-runtime", "1.0-M1-SNAPSHOT")
+// https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-serialization-runtime
+//    implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:1.0-M1-1.4.0-rc")
+
     implementation("com.mysql:mysql-connector-j:8.1.0")
     implementation("io.ktor:ktor-server-netty-jvm")
     implementation("ch.qos.logback:logback-classic:$logback_version")

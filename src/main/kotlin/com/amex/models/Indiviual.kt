@@ -1,14 +1,12 @@
 package com.amex.models
 
+
+import kotlinx.serialization.Serializable
+
 import java.time.LocalDate
+import java.util.*
 
-class Individual(_accountNo:Long,_address:Address,_surName:String, _gender: Gender,_dob:LocalDate):Customer( "ffdf", _accountNo , "sdf@aexp.com" , "fdfdf", 34343434, _address) {
-
-    //override variable
-    override val code="CI"
-
-    var surName=_surName;
-    var gender=_gender
-    var dob=_dob
-
-}
+@Serializable
+data class Indiviual(var _accountNo:Long,var _address:Address,var _surName:String, var _gender: Gender,
+                      var _dob: String
+)

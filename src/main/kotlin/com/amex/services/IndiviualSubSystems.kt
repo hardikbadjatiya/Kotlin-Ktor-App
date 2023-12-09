@@ -29,17 +29,17 @@ class IndiviualSubSystems: IndiviualFacades {
 
 
     override fun getIndiviualById(accountNo: Long): Indiviual {
-    return   indiviualList.filter { it -> it.accNo  == accountNo }.first()
+    return   indiviualList.filter { it -> it._accountNo  == accountNo }.first()
     }
 
     override fun updateIndiviual(indiviual: Indiviual) : Indiviual {
 
-        var index  = indiviualList.indexOf(indiviualList.filter{it -> it.accNo  == indiviual.accNo}.first())
+        var index  = indiviualList.indexOf(indiviualList.filter{it -> it._accountNo  == indiviual._accountNo}.first())
        return indiviualList.set(index, indiviual)
     }
 
     override fun deleteIndiviual(accountNo: Long) {
-        var index  = indiviualList.indexOf(indiviualList.filter{it -> it.accNo  == accountNo}.first())
+        var index  = indiviualList.indexOf(indiviualList.filter{it -> it._accountNo  == accountNo}.first())
         indiviualList.removeAt(index)
     }
 
